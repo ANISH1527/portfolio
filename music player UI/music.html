@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player - Perfect</title>
+    <style>
+        :root {
+            --primary-blue: #4facfe;
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --text-main: #ffffff;
+            --text-dim: #b3b3b3;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            background-color: #000;
+        }
+
+        /* Blurred Background Effect */
+        .background-blur {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('download.jpg') no-repeat center center/cover;
+            filter: blur(20px) brightness(0.5);
+            transform: scale(1.1);
+            z-index: -1;
+        }
+
+        /* Player Container */
+        .player-card {
+            width: 350px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            padding: 30px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+            text-align: center;
+        }
+
+        /* Album Art */
+        .album-art {
+            width: 250px;
+            height: 250px;
+            margin: 0 auto 25px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .album-art img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Song Info */
+        .song-details h2 {
+            color: var(--text-main);
+            margin: 0;
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .song-details p {
+            color: var(--text-dim);
+            margin: 5px 0 25px;
+            font-size: 1rem;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            cursor: pointer;
+            accent-color: var(--primary-blue);
+        }
+
+        .time-stamps {
+            display: flex;
+            justify-content: space-between;
+            color: var(--text-dim);
+            font-size: 0.75rem;
+            margin-bottom: 25px;
+        }
+
+        /* Controls */
+        .controls {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            color: var(--text-main);
+        }
+
+        .btn {
+            cursor: pointer;
+            transition: transform 0.2s ease, opacity 0.2s;
+            opacity: 0.8;
+        }
+
+        .btn:hover {
+            transform: scale(1.1);
+            opacity: 1;
+        }
+
+        .play-pause {
+            background: white;
+            color: black;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+        }
+
+        /* SVG Icon styling */
+        svg {
+            fill: currentColor;
+            width: 24px;
+            height: 24px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="background-blur"></div>
+
+    <div class="player-card">
+        <div class="album-art">
+            <img src="download.jpg" alt="Perfect Album Art">
+        </div>
+
+        <div class="song-details">
+            <h2>PERFECT</h2>
+            <p>Ed Sheeran</p>
+        </div>
+
+        <div class="progress-container">
+            <input type="range" value="45" max="100">
+            <div class="time-stamps">
+                <span>0:45</span>
+                <span>3:58</span>
+            </div>
+        </div>
+
+        <div class="controls">
+            <div class="btn">
+                <svg viewBox="0 0 24 24"><path d="M10.59 9.17L5.41 4 4 5.41l5.17 5.17 1.42-1.41zM14.5 4l2.04 2.04L4 18.59 5.41 20 17.96 7.45 20 9.5V4h-5.5zm.59 9.42l-1.41 1.41L16.56 18l-2.06 2.06 1.41 1.41L18.44 19l2.06 2.06 1.41-1.41L19.86 17l2.06-2.06-1.41-1.41-2.06 2.06-2.45-2.45z"/></svg>
+            </div>
+            <div class="btn">
+                <svg viewBox="0 0 24 24"><path d="M6 6h2v12H6zm3.5 6L19 18V6z"/></svg>
+            </div>
+            <div class="btn play-pause">
+                <svg viewBox="0 0 24 24" style="width:30px; height:30px;"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <div class="btn">
+                <svg viewBox="0 0 24 24"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/></svg>
+            </div>
+            <div class="btn">
+                <svg viewBox="0 0 24 24"><path d="M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4z"/></svg>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
